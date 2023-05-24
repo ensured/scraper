@@ -1,36 +1,39 @@
-import { TodoItem } from "@/components/TodoItem"
-import { prisma } from "@/db"
-import Link from "next/link"
+import { ScrapeItem } from "@/components/ScrapeItem";
+import { prisma } from "@/db";
+import Link from "next/link";
 
-function getTodos() {
-  return prisma.todo.findMany()
+async function getTodos() {
+	return prisma.scraper.findMany({ orderBy: { id: "desc" } });
 }
 
 async function toggleTodo(id: string, complete: boolean) {
-  "use server"
-
-  await prisma.todo.update({ where: { id }, data: { complete } })
+	"use server";
+	await prisma.scraper.update({ where: { id }, data: { complete } });
 }
 
 export default async function Home() {
-  const todos = await getTodos()
+	const todos = await getTodos();
+	// add something to the database just so we have something
 
-  return (
-    <>
-      <header className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl">Todos</h1>
-        <Link
-          className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
-          href="/new"
-        >
-          New
-        </Link>
-      </header>
-      <ul className="pl-4">
-        {todos.map(todo => (
-          <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} />
-        ))}
-      </ul>
-    </>
-  )
+	return (
+		<>
+			<header className="flex justify-between items-center mb-4">
+				<h1 className="text-2xl">Todos</h1>
+				<Link
+					className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
+					href="/scrape">
+					New
+				</Link>
+			</header>
+			<ul className="pl-4">
+				{todos.map((todo) => (
+					<ScrapeItem
+						key={todo.id}
+						{...todo}
+						toggleTodo={toggleTodo}
+					/>
+				))}
+			</ul>
+		</>
+	);
 }
