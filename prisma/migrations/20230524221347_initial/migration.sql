@@ -6,3 +6,11 @@ CREATE TABLE "Todo" (
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL
 );
+
+-- CreateTable
+CREATE TABLE "Scraper" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "websiteUrl" TEXT NOT NULL,
+    "scrapedLinks" TEXT,
+    "complete" BOOLEAN NOT NULL
+);

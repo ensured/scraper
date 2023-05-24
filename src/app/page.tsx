@@ -13,23 +13,25 @@ async function toggleTodo(id: string, complete: boolean) {
 
 export default async function Home() {
 	const todos = await getTodos();
-	// add something to the database just so we have something
 
 	return (
 		<>
 			<header className="flex justify-between items-center mb-4">
-				<h1 className="text-2xl">Todos</h1>
+				<h1 className="text-2xl">Website Scraper</h1>
 				<Link
 					className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
 					href="/scrape">
 					New
 				</Link>
 			</header>
-			<ul className="pl-4">
+			<ul className="flex flex-col gap-8">
 				{todos.map((todo) => (
 					<ScrapeItem
 						key={todo.id}
-						{...todo}
+						id={todo.id}
+						complete={todo.complete}
+						websiteUrl={todo.websiteUrl}
+						scrapedLinks={todo.scrapedLinks}
 						toggleTodo={toggleTodo}
 					/>
 				))}

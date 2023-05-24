@@ -19,7 +19,7 @@ model Todo {
 }
 
 model Scraper {
-  id            String    @id @default(uuid())
+  id            Int    @id @default(autoincrement())
   websiteUrl    String
   scrapedLinks  String?
   complete     Boolean
