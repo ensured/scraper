@@ -2,6 +2,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Creating a .env file
+(for windows only) (change to your username)
+```bash
+DATABASE_URL='file:C:\\Users\\your_username\\Desktop\\next-13-todo-list\\prisma\\db.db'
+```
+
 First, run the development server:
 
 ```bash
