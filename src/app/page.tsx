@@ -18,15 +18,15 @@ export default async function Home() {
 	return (
 		<>
 			<header className="flex justify-between items-center mb-4">
-				<h1 className="text-2xl">Todos</h1>
+				<h1 className="text-2xl">Scrape Jobs</h1>
 				<Link
 					className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
 					href="/scrape">
-					New
+					New Job
 				</Link>
 			</header>
 			<ul className="pl-4">
-				{todos.map((todo) => (
+				{todos.reverse().map((todo) => (
 					<ScrapeItem
 						key={todo.id}
 						{...todo}
