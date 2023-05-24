@@ -130,14 +130,18 @@ export default function Page() {
 	return (
 		<>
 			<header className="flex justify-between items-center mb-4">
+<<<<<<< HEAD
 				<h1 className="text-2xl">Create a new scraping job</h1>
+=======
+				<h1 className="text-2xl">New Scrape Job</h1>
+>>>>>>> 8e93fda89f080ff8d4721661151858e49b268272
 			</header>
 			<form action={startScraping} className="flex gap-2 flex-col">
 				<input
 					type="url"
 					name="websiteUrl"
 					className="border border-slate-300 bg-transparent rounded px-2 py-1 outline-none focus-within:border-slate-100"
-					placeholder="websiteUrl"
+					placeholder="website url"
 				/>
 
 				<div className="flex items-center gap-2">

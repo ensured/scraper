@@ -2,14 +2,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Creating a .env file and provide a DATABASE_URL
+(change to your username)
+```bash
+DATABASE_URL='file:C:\\Users\\your_username\\Desktop\\next-13-todo-list\\prisma\\db.db'
+```
+
 First, run the development server:
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
